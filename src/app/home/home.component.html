@@ -1,0 +1,24 @@
+
+<div class="container w-75">
+    <ngb-carousel #carousel interval="5000" *ngIf="movies">
+        <ng-template ngbSlide *ngFor="let movie of movies | slice: 0:5">
+          <div class="picsum-img-wrapper">
+            <img class="image-fluid" src={{movie.backdropUrl}} alt="Random slide" class="w-100">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{movie.title}}</h3>
+          </div>
+        </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <div class = "container-fluid">
+    <div class="row">
+        <div class="col-6 col-lg-3 col-sm-4 col-xl-2"
+            *ngFor="let movie of movies">
+         <app-movie-card [movie]='movie' (favoriteEvent)='movieFavorited($event)' (purchaseEvent)='moviePurchase($event)'>
+         </app-movie-card>
+       </div>
+    </div>
+  </div>
+  

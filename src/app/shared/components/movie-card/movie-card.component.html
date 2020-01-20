@@ -1,0 +1,19 @@
+    <div class="card m-3">
+        <img class="img-fluid card-img-top" src={{movie.posterUrl}} alt="Random post">
+
+    <div class="card-body row">
+        <div class= "col-5">{{movie.runTime}}</div>
+        <div class= "col-5">{{movie.releaseDate| date:'yyyy'}}</div>
+        <div class= "col-2">
+                <span class="text-primary">
+                    <i class="far fa-heart" (click)="favoriteClicked(movie)"></i>
+                </span>
+        </div>
+
+
+          
+        <button type="button" class="btn btn-primary btn-block" (click)="buyMovieClicked(movie)" > Buy Movie</button>
+      </div>
+    </div>
+ 
+ 

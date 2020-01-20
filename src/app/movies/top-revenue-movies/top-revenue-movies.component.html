@@ -1,0 +1,6 @@
+<p>top-revenue-movies works!</p>
+<ul>
+    <li *ngFor="let movie of movies">
+        <a [routerLink]="[ '/movies/', movie.id ]">{{movie.title}},</a>
+    </li>
+</ul>

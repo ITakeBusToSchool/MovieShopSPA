@@ -1,0 +1,43 @@
+<div class="container">
+    <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+    <form (ngSubmit)="Login()"
+        #loginForm="ngForm">
+        <!-- #loginForm: it a form of "template reference variable"
+            It like a uniqe ID of angular forms. 
+
+        -->
+        <!-- while clicking ngSubmit, the input will go to the component, then talk to the API  -->
+    <div class="form-group">
+        <label for="lblEmail">Email address</label>
+        <input type="text"
+            name="email"
+            id="lblEmail"
+            class="form-control"
+            placeholder="email"
+            [(ngModel)]="userLogin.userName"
+            required
+            email>
+            <!-- ngModel is a front-validation, it is not part of HTML.
+                    To work with ngModel, there should always has the "name" tag 
+                -->
+        <small id="helpId"
+            class="text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="lblPassword">Password</label>
+        <input type="password"
+            class="form-control"
+            name="password"
+            id="lblPassword"
+            placeholder="Password"
+            [(ngModel)]="userLogin.password"
+            required>
+    </div>
+    <input [disabled]="!loginForm.valid"
+            type="submit"
+            class="btn btn-primary"
+            value="Submit" />
+    </form>
+
+    
+</div>
